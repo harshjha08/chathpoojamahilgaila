@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Chhath Pooja Admin Dashboard
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="admin.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <!-- ========================================= -->
+        <!-- SIDEBAR -->
+        <!-- ========================================= -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+
+                <div class="logo-sun">
+                    <i class="fas fa-sun"></i>
+                </div>
+
+                <div class="logo-text">
+
+                    <span class="main">
+                        Chhath Pooja
+                    </span>
+
+                    <span class="sub">
+                        Admin Dashboard
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- DASHBOARD -->
+
+            <div class="sidebar-section">
+
+                <div class="sidebar-section-label">
+                    Main
+                </div>
+
+                <a
+                    href="#"
+                    class="nav-item active">
+
+                    <i class="fas fa-chart-pie"></i>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+                <a
+                    href="#"
+                    class="nav-item">
+
+                    <i class="fas fa-calendar-days"></i>
+
+                    <span>
+                        Events
+                    </span>
+
+                    <span class="nav-badge">
+                        9
+                    </span>
+
+                </a>
+
+                <a
+                    href="#"
+                    class="nav-item">
+
+                    <i class="fas fa-clock-rotate-left"></i>
+
+                    <span>
+                        Timeline
+                    </span>
+
+                    <span class="nav-badge">
+                        10
+                    </span>
+
+                </a>
+
+                <a
+                    href="#"
+                    class="nav-item">
+
+                    <i class="fas fa-image"></i>
+
+                    <span>
+                        Gallery
+                    </span>
+
+                    <span class="nav-badge">
+                        8
+                    </span>
+
+                </a>
+
+            </div>
+
+            <!-- CONTENT -->
+
+            <div class="sidebar-section">
+
+                <div class="sidebar-section-label">
+                    Content
+                </div>
+
+                <a
+                    href="#"
+                    class="nav-item">
+
+                    <i class="fas fa-users"></i>
+
+                    <span>
+                        Committee
+                    </span>
+
+                </a>
+
+                <a
+                    href="#"
+                    class="nav-item">
+
+                    <i class="fas fa-circle-question"></i>
+
+                    <span>
+                        FAQs
+                    </span>
+
+                    <span class="nav-badge">
+                        8
+                    </span>
+
+                </a>
+
+                <a
+                    href="#"
+                    class="nav-item">
+
+                    <i class="fas fa-envelope"></i>
+
+                    <span>
+                        Messages
+                    </span>
+
+                    <span class="nav-badge">
+                        12
+                    </span>
+
+                </a>
+
+            </div>
+
+            <!-- SETTINGS -->
+
+            <div class="sidebar-section">
+
+                <div class="sidebar-section-label">
+                    Settings
+                </div>
+
+                <a
+                    href="#"
+                    class="nav-item">
+
+                    <i class="fas fa-gear"></i>
+
+                    <span>
+                        Website Settings
+                    </span>
+
+                </a>
+
+                <a
+                    href="#"
+                    class="nav-item">
+
+                    <i class="fas fa-database"></i>
+
+                    <span>
+                        Backup Data
+                    </span>
+
+                </a>
+
+            </div>
+
+            <!-- FOOTER -->
+
+            <div class="sidebar-footer">
+
+                <div class="admin-user">
+
+                    <div class="admin-avatar">
+                        A
+                    </div>
+
+                    <div class="admin-info">
+
+                        <div class="name">
+                            Administrator
+                        </div>
+
+                        <div class="role">
+                            Super Admin
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button class="logout-btn">
+
+                    <i class="fas fa-right-from-bracket"></i>
+
+                    Logout
+
+                </button>
+
+            </div>
+
+        </aside>
+
+        <!-- ========================================= -->
+        <!-- MAIN CONTENT -->
+        <!-- ========================================= -->
+
+        <main class="main-content">
+
+            <!-- HEADER -->
+
+            <header class="top-header">
+
+                <div class="header-left">
+
+                    <button class="menu-toggle">
+
+                        <i class="fas fa-bars"></i>
+
+                    </button>
+
+                    <h1 class="page-title">
+                        Dashboard Overview
+                    </h1>
+
+                </div>
+
+                <div class="header-right">
+
+                    <button class="header-btn">
+
+                        <i class="fas fa-bell"></i>
+
+                        <span class="dot"></span>
+
+                    </button>
+
+                    <button class="header-btn">
+
+                        <i class="fas fa-envelope"></i>
+
+                        <span class="dot"></span>
+
+                    </button>
+
+                    <div class="header-admin">
+
+                        <div class="header-admin-avatar">
+                            A
+                        </div>
+
+                        <span class="header-admin-name">
+                            Admin
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- PAGE CONTENT START -->
+
+            <div class="page-content">
+                                <!-- ========================================= -->
+                <!-- STATS -->
+                <!-- ========================================= -->
+
+                <div class="stats-grid">
+
+                    <div
+                        class="stat-card"
+                        style="--stat-color: var(--primary);">
+
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-days"></i>
+                        </div>
+
+                        <div class="stat-info">
+
+                            <span class="stat-num">
+                                9
+                            </span>
+
+                            <div class="stat-label">
+                                Total Events
+                            </div>
+
+                            <div class="stat-change up">
+                                +2 this year
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="stat-card"
+                        style="--stat-color: var(--success);">
+
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+
+                        <div class="stat-info">
+
+                            <span class="stat-num">
+                                8
+                            </span>
+
+                            <div class="stat-label">
+                                Committee Members
+                            </div>
+
+                            <div class="stat-change up">
+                                Active
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="stat-card"
+                        style="--stat-color: var(--info);">
+
+                        <div class="stat-icon">
+                            <i class="fas fa-image"></i>
+                        </div>
+
+                        <div class="stat-info">
+
+                            <span class="stat-num">
+                                8
+                            </span>
+
+                            <div class="stat-label">
+                                Gallery Images
+                            </div>
+
+                            <div class="stat-change up">
+                                Updated
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="stat-card"
+                        style="--stat-color: var(--warning);">
+
+                        <div class="stat-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+
+                        <div class="stat-info">
+
+                            <span class="stat-num">
+                                12
+                            </span>
+
+                            <div class="stat-label">
+                                Messages
+                            </div>
+
+                            <div class="stat-change down">
+                                Pending Review
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ========================================= -->
+                <!-- QUICK ACTIONS -->
+                <!-- ========================================= -->
+
+                <div class="card section-gap">
+
+                    <div class="card-header">
+
+                        <h3 class="card-title">
+
+                            <i class="fas fa-bolt"></i>
+
+                            Quick Actions
+
+                        </h3>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="flex-center">
+
+                            <button class="btn btn-primary">
+
+                                <i class="fas fa-plus"></i>
+
+                                Add Event
+
+                            </button>
+
+                            <button class="btn btn-success">
+
+                                <i class="fas fa-image"></i>
+
+                                Upload Image
+
+                            </button>
+
+                            <button class="btn btn-warning">
+
+                                <i class="fas fa-user-plus"></i>
+
+                                Add Member
+
+                            </button>
+
+                            <button class="btn btn-secondary">
+
+                                <i class="fas fa-download"></i>
+
+                                Backup
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ========================================= -->
+                <!-- RECENT ACTIVITY -->
+                <!-- ========================================= -->
+
+                <div class="card section-gap">
+
+                    <div class="card-header">
+
+                        <h3 class="card-title">
+
+                            <i class="fas fa-clock"></i>
+
+                            Recent Activity
+
+                        </h3>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Activity</th>
+
+                                    <th>Date</th>
+
+                                    <th>Status</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        Event Updated
+                                    </td>
+
+                                    <td>
+                                        10 Jun 2026
+                                    </td>
+
+                                    <td>
+                                        <span class="badge badge-success">
+                                            Completed
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        Gallery Image Added
+                                    </td>
+
+                                    <td>
+                                        09 Jun 2026
+                                    </td>
+
+                                    <td>
+                                        <span class="badge badge-info">
+                                            Published
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        Committee Edited
+                                    </td>
+
+                                    <td>
+                                        08 Jun 2026
+                                    </td>
+
+                                    <td>
+                                        <span class="badge badge-warning">
+                                            Updated
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+                <!-- ========================================= -->
+                <!-- UPCOMING EVENTS -->
+                <!-- ========================================= -->
+
+                <div class="card section-gap">
+
+                    <div class="card-header">
+
+                        <h3 class="card-title">
+
+                            <i class="fas fa-calendar-check"></i>
+
+                            Upcoming Chhath Events
+
+                        </h3>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Event</th>
+
+                                    <th>Date</th>
+
+                                    <th>Venue</th>
+
+                                    <th>Status</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        Naha Kha
+                                    </td>
+
+                                    <td>
+                                        Oct 26, 2025
+                                    </td>
+
+                                    <td>
+                                        Village Pond
+                                    </td>
+
+                                    <td>
+                                        <span class="badge badge-primary">
+                                            Scheduled
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        Kharna
+                                    </td>
+
+                                    <td>
+                                        Oct 27, 2025
+                                    </td>
+
+                                    <td>
+                                        Village Chowk
+                                    </td>
+
+                                    <td>
+                                        <span class="badge badge-primary">
+                                            Scheduled
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        Sandhya Arghya
+                                    </td>
+
+                                    <td>
+                                        Oct 28, 2025
+                                    </td>
+
+                                    <td>
+                                        Main Ghat
+                                    </td>
+
+                                    <td>
+                                        <span class="badge badge-primary">
+                                            Scheduled
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+                                <!-- ========================================= -->
+                <!-- EVENTS MANAGEMENT -->
+                <!-- ========================================= -->
+
+                <div class="card section-gap">
+
+                    <div class="card-header">
+
+                        <h3 class="card-title">
+
+                            <i class="fas fa-calendar-days"></i>
+
+                            Events Management
+
+                        </h3>
+
+                        <button class="btn btn-primary">
+
+                            <i class="fas fa-plus"></i>
+
+                            Add Event
+
+                        </button>
+
+                    </div>
+
+                    <!-- TOOLBAR -->
+
+                    <div class="toolbar">
+
+                        <div class="search-box">
+
+                            <i class="fas fa-search"></i>
+
+                            <input
+                                type="text"
+                                placeholder="Search events...">
+
+                        </div>
+
+                        <select class="form-control">
+
+                            <option>
+                                All Categories
+                            </option>
+
+                            <option>
+                                Puja
+                            </option>
+
+                            <option>
+                                Cultural
+                            </option>
+
+                            <option>
+                                Community
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- TABLE -->
+
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>ID</th>
+
+                                    <th>Title</th>
+
+                                    <th>Category</th>
+
+                                    <th>Date</th>
+
+                                    <th>Venue</th>
+
+                                    <th>Status</th>
+
+                                    <th>Actions</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>1</td>
+
+                                    <td>
+                                        Naha Kha
+                                    </td>
+
+                                    <td>
+                                        <span class="badge badge-primary">
+                                            Puja
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        Oct 26, 2025
+                                    </td>
+
+                                    <td>
+                                        Village Pond
+                                    </td>
+
+                                    <td>
+                                        <span class="badge badge-success">
+                                            Active
+                                        </span>
+                                    </td>
+
+                                    <td class="td-actions">
+
+                                        <button class="btn btn-sm btn-outline">
+                                            <i class="fas fa-pen"></i>
+                                        </button>
+
+                                        <button class="btn btn-sm btn-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>2</td>
+
+                                    <td>
+                                        Kharna
+                                    </td>
+
+                                    <td>
+                                        <span class="badge badge-primary">
+                                            Puja
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        Oct 27, 2025
+                                    </td>
+
+                                    <td>
+                                        Village Chowk
+                                    </td>
+
+                                    <td>
+                                        <span class="badge badge-success">
+                                            Active
+                                        </span>
+                                    </td>
+
+                                    <td class="td-actions">
+
+                                        <button class="btn btn-sm btn-outline">
+                                            <i class="fas fa-pen"></i>
+                                        </button>
+
+                                        <button class="btn btn-sm btn-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>3</td>
+
+                                    <td>
+                                        Sandhya Arghya
+                                    </td>
+
+                                    <td>
+                                        <span class="badge badge-primary">
+                                            Puja
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        Oct 28, 2025
+                                    </td>
+
+                                    <td>
+                                        Main Ghat
+                                    </td>
+
+                                    <td>
+                                        <span class="badge badge-success">
+                                            Active
+                                        </span>
+                                    </td>
+
+                                    <td class="td-actions">
+
+                                        <button class="btn btn-sm btn-outline">
+                                            <i class="fas fa-pen"></i>
+                                        </button>
+
+                                        <button class="btn btn-sm btn-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>4</td>
+
+                                    <td>
+                                        Usha Arghya
+                                    </td>
+
+                                    <td>
+                                        <span class="badge badge-primary">
+                                            Puja
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        Oct 29, 2025
+                                    </td>
+
+                                    <td>
+                                        Main Ghat
+                                    </td>
+
+                                    <td>
+                                        <span class="badge badge-success">
+                                            Active
+                                        </span>
+                                    </td>
+
+                                    <td class="td-actions">
+
+                                        <button class="btn btn-sm btn-outline">
+                                            <i class="fas fa-pen"></i>
+                                        </button>
+
+                                        <button class="btn btn-sm btn-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+                <!-- ========================================= -->
+                <!-- GALLERY MANAGEMENT -->
+                <!-- ========================================= -->
+
+                <div class="card section-gap">
+
+                    <div class="card-header">
+
+                        <h3 class="card-title">
+
+                            <i class="fas fa-image"></i>
+
+                            Gallery Management
+
+                        </h3>
+
+                        <button class="btn btn-success">
+
+                            <i class="fas fa-upload"></i>
+
+                            Upload Image
+
+                        </button>
+
+                    </div>
+
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Image</th>
+
+                                    <th>Caption</th>
+
+                                    <th>Category</th>
+
+                                    <th>Status</th>
+
+                                    <th>Actions</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+
+                                        <img
+                                            src="https://via.placeholder.com/80"
+                                            class="img-thumb"
+                                            alt="">
+
+                                    </td>
+
+                                    <td>
+                                        Sunset Arghya
+                                    </td>
+
+                                    <td>
+                                        <span class="badge badge-info">
+                                            Sunset
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="badge badge-success">
+                                            Visible
+                                        </span>
+                                    </td>
+
+                                    <td class="td-actions">
+
+                                        <button class="btn btn-sm btn-outline">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+
+                                        <button class="btn btn-sm btn-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+                                <!-- ========================================= -->
+                <!-- COMMITTEE MANAGEMENT -->
+                <!-- ========================================= -->
+
+                <div class="card section-gap">
+
+                    <div class="card-header">
+
+                        <h3 class="card-title">
+                            <i class="fas fa-users"></i>
+                            Committee Management
+                        </h3>
+
+                        <button class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i>
+                            Add Member
+                        </button>
+
+                    </div>
+
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Role</th>
+                                    <th>Phone</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="flex-center">
+
+                                            <div class="avatar-sm">
+                                                R
+                                            </div>
+
+                                            Rajesh Kumar
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>President</td>
+
+                                    <td>+91 98765 00001</td>
+
+                                    <td>
+                                        <span class="badge badge-success">
+                                            Active
+                                        </span>
+                                    </td>
+
+                                    <td class="td-actions">
+
+                                        <button class="btn btn-sm btn-outline">
+                                            <i class="fas fa-pen"></i>
+                                        </button>
+
+                                        <button class="btn btn-sm btn-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+                <!-- ========================================= -->
+                <!-- FAQ MANAGEMENT -->
+                <!-- ========================================= -->
+
+                <div class="card section-gap">
+
+                    <div class="card-header">
+
+                        <h3 class="card-title">
+                            <i class="fas fa-circle-question"></i>
+                            FAQ Management
+                        </h3>
+
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Add FAQ
+                        </button>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="empty-state">
+
+                            <i class="fas fa-circle-question"></i>
+
+                            <h4>
+                                FAQ Records Loaded
+                            </h4>
+
+                            <p>
+                                Manage frequently asked questions here.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ========================================= -->
+                <!-- CONTACT MESSAGES -->
+                <!-- ========================================= -->
+
+                <div class="card section-gap">
+
+                    <div class="card-header">
+
+                        <h3 class="card-title">
+                            <i class="fas fa-envelope"></i>
+                            Contact Messages
+                        </h3>
+
+                    </div>
+
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Subject</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Harsh Jha</td>
+
+                                    <td>
+                                        harsh@example.com
+                                    </td>
+
+                                    <td>
+                                        Volunteer Registration
+                                    </td>
+
+                                    <td>
+
+                                        <span class="badge badge-warning">
+                                            Pending
+                                        </span>
+
+                                    </td>
+
+                                    <td class="td-actions">
+
+                                        <button class="btn btn-sm btn-outline">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+
+                                        <button class="btn btn-sm btn-success">
+                                            <i class="fas fa-check"></i>
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- PAGE CONTENT END -->
+
+        </main>
+
+    </div>
+
+    <!-- ========================================= -->
+    <!-- TOAST ZONE -->
+    <!-- ========================================= -->
+
+    <div id="toastZone"></div>
+
+    <!-- ========================================= -->
+    <!-- MODAL -->
+    <!-- ========================================= -->
+
+    <div class="modal-overlay">
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <h3 class="modal-title">
+                    Add New Event
+                </h3>
+
+                <button class="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Event Title
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Category
+                        </label>
+
+                        <select class="form-control">
+
+                            <option>Puja</option>
+                            <option>Cultural</option>
+                            <option>Community</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group full">
+
+                        <label>
+                            Description
+                        </label>
+
+                        <textarea
+                            class="form-control"></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-secondary">
+                    Cancel
+                </button>
+
+                <button class="btn btn-primary">
+                    Save Event
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ========================================= -->
+    <!-- CONFIRM DELETE -->
+    <!-- ========================================= -->
+
+    <div class="confirm-overlay">
+
+        <div class="confirm-box">
+
+            <i class="fas fa-trash"></i>
+
+            <h3>
+                Delete Record?
+            </h3>
+
+            <p>
+                This action cannot be undone.
+            </p>
+
+            <div class="confirm-actions">
+
+                <button class="btn btn-secondary">
+                    Cancel
+                </button>
+
+                <button class="btn btn-danger">
+                    Delete
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

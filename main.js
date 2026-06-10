@@ -3,7 +3,10 @@
 // main.js – All interactivity & dynamic features
 // ============================================================
 
+
+
 "use strict";
+
 
 /* ============================================================
    1. PRELOADER
@@ -140,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
 ============================================================ */
 (function initCountdown() {
   // Chhath Pooja 2025 – Sandhya Arghya: Oct 28, 2025 17:58
-  const target = new Date("2026-11-13T17:58:00+05:30").getTime();
+  const target = new Date("2026-11-13T00:00:00+05:30").getTime();
 
   const cdDays    = document.getElementById("cd-days");
   const cdHours   = document.getElementById("cd-hours");
@@ -597,7 +600,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!entry.isIntersecting) return;
       const el     = entry.target;
       const target = parseInt(el.dataset.target, 10);
-      const duration = 1800;
+      const duration = 1900;
       const step   = target / (duration / 16);
       let current  = 0;
 
@@ -652,7 +655,7 @@ function showToast(message, type = "info") {
     container = document.createElement("div");
     container.id = "toastContainer";
     container.style.cssText = `
-      position: fixed; top: 24px; right: 24px; z-index: 9999;
+      position: fixed; top: 35px; right: 10px; z-index: 9999;
       display: flex; flex-direction: column; gap: 10px;
       pointer-events: none;
     `;
@@ -837,3 +840,8 @@ window.addEventListener("resize", () => {
 /* ============================================================
    EOF – Chhath Pooja 2025, Mahil Gaila, Punjab 🙏
 ============================================================ */
+
+// ============================================================
+// CHHATH POOJA 2025 – Mahil Gaila, Punjab
+// Data File – All content data
+// ============================================================
