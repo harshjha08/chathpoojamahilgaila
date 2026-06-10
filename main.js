@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
 ============================================================ */
 (function initCountdown() {
   // Chhath Pooja 2025 – Sandhya Arghya: Oct 28, 2025 17:58
-  const target = new Date("2025-10-28T17:58:00+05:30").getTime();
+  const target = new Date("2026-11-13T17:58:00+05:30").getTime();
 
   const cdDays    = document.getElementById("cd-days");
   const cdHours   = document.getElementById("cd-hours");
