@@ -1,16 +1,7 @@
-// ============================================================
-// CHHATH POOJA 2025 – Mahil Gaila, Punjab
-// main.js – All interactivity & dynamic features
-// ============================================================
-
-
-
-"use strict";
-
-
 /* ============================================================
    1. PRELOADER
 ============================================================ */
+"strict"
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   if (!preloader) return;
@@ -142,9 +133,8 @@ document.addEventListener("DOMContentLoaded", () => {
    6. COUNTDOWN TIMER
 ============================================================ */
 (function initCountdown() {
-  // Chhath Pooja 2025 – Sandhya Arghya: Oct 28, 2025 17:58
+  // Chhath Pooja 2026 – Sandhya Arghya: Nov 13, 2026 17:58
   const target = new Date("2026-11-13T00:00:00+05:30").getTime();
-
   const cdDays    = document.getElementById("cd-days");
   const cdHours   = document.getElementById("cd-hours");
   const cdMinutes = document.getElementById("cd-minutes");
@@ -248,12 +238,12 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 
 
-/* ============================================================
-   9. RENDER EVENTS
-============================================================ */
+// /* ============================================================
+//    9. RENDER EVENTS
+// ============================================================ */
 (function renderEvents() {
   const grid = document.getElementById("eventsGrid");
-  if (!grid || !window.SiteData) return;
+  if (!grid || window.SiteData) return;
 
   function buildCards(filter) {
     const filtered = filter === "all"
@@ -307,7 +297,7 @@ document.addEventListener("DOMContentLoaded", () => {
 ============================================================ */
 (function renderTimeline() {
   const wrapper = document.getElementById("timelineItems");
-  if (!wrapper || !window.SiteData) return;
+  if (!wrapper || window.SiteData) return;
 
   SiteData.timeline.forEach((item, i) => {
     const div = document.createElement("div");
@@ -330,11 +320,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* ============================================================
-   11. RENDER COMMITTEE
-============================================================ */
+//    11. RENDER COMMITTEE
+// ============================================================ */
 (function renderCommittee() {
   const grid = document.getElementById("committeeGrid");
-  if (!grid || !window.SiteData) return;
+  if (!grid || window.SiteData) return;
 
   SiteData.committee.forEach((member, i) => {
     const card = document.createElement("div");
@@ -363,11 +353,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* ============================================================
-   12. RENDER GALLERY + LIGHTBOX + FILTER
+   12. RENDER GALLERY + LIGHTBOX + FILTER do not delete 
 ============================================================ */
 (function renderGallery() {
   const grid = document.getElementById("galleryGrid");
-  if (!grid || !window.SiteData) return;
+  
+  if (!grid || window.SiteData) return;
 
   let currentIndex = 0;
   let activeFilter = "all";
@@ -476,7 +467,7 @@ document.addEventListener("DOMContentLoaded", () => {
 ============================================================ */
 (function renderFAQ() {
   const grid = document.getElementById("faqGrid");
-  if (!grid || !window.SiteData) return;
+  if (!grid || window.SiteData) return;
 
   SiteData.faq.forEach((item, i) => {
     const div = document.createElement("div");
@@ -820,8 +811,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 ============================================================ */
 window.addEventListener("load", () => {
   setTimeout(() => {
-    showToast("🙏 Welcome! Jai Chhath Maiya – Mahil Gaila, Punjab", "info");
-  }, 2400);
+    showToast("🙏 Welcome! Jai Chhathi Maiya – Mahil Gaila, Punjab");
+  }, 2000);
 });
 
 
@@ -837,11 +828,3 @@ window.addEventListener("resize", () => {
 });
 
 
-/* ============================================================
-   EOF – Chhath Pooja 2025, Mahil Gaila, Punjab 🙏
-============================================================ */
-
-// ============================================================
-// CHHATH POOJA 2025 – Mahil Gaila, Punjab
-// Data File – All content data
-// ============================================================
