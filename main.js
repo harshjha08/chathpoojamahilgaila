@@ -9,6 +9,7 @@ window.addEventListener("load", () => {
     preloader.classList.add("hidden");
     document.body.style.overflow = "";
   }, 1800);
+  
 });
 document.body.style.overflow = "hidden";
 
@@ -354,291 +355,113 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* ============================================================
    12. RENDER GALLERY + LIGHTBOX + FILTER do not delete 
-============================================================ 
-(function renderGallery() {
-  const grid = document.getElementById("galleryGrid");
-  
-  if (!grid || window.SiteData) return;
-
-  let currentIndex = 0;
-  let activeFilter = "all";
-
-  function getFiltered() {
-    return activeFilter === "all"
-      ? SiteData.gallery
-      : SiteData.gallery.filter(g => g.filter === activeFilter);
-  }
-
-  function build() {
-    grid.innerHTML = "";
-    getFiltered().forEach((item, i) => {
-      const div = document.createElement("div");
-      div.className = "gallery-item";
-      div.setAttribute("data-filter", item.filter);
-      div.innerHTML = `
-        <img src="${item.src}" alt="${item.caption}" loading="lazy" />
-        <div class="gallery-overlay">
-          <p>${item.caption}</p>
-          <i class="fas fa-expand" style="margin-left:auto"></i>
-        </div>`;
-      div.addEventListener("click", () => openLightbox(i));
-      grid.appendChild(div);
-    });
-  }
-
-  build();
-
-  // Filter buttons
-  document.querySelectorAll(".filter-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      activeFilter = btn.dataset.filter;
-
-      // Animate out then rebuild
-      grid.style.opacity = "0";
-      grid.style.transform = "translateY(10px)";
-      setTimeout(() => {
-        build();
-        grid.style.transition = "opacity 0.4s ease, transform 0.4s ease";
-        grid.style.opacity = "1";
-        grid.style.transform = "translateY(0)";
-      }, 250);
-    });
-  });
-
-  // Lightbox
-  const lightbox    = document.getElementById("lightbox");
-  const lbImg       = document.getElementById("lightboxImg");
-  const lbCaption   = document.getElementById("lightboxCaption");
-  const lbClose     = document.getElementById("lightboxClose");
-  const lbPrev      = document.getElementById("lightboxPrev");
-  const lbNext      = document.getElementById("lightboxNext");
-
-  function openLightbox(i) {
-    if (!lightbox) return;
-    currentIndex = i;
-    showLightboxItem();
-    lightbox.classList.add("open");
-    document.body.style.overflow = "hidden";
-  }
-
-  function showLightboxItem() {
-    const items = getFiltered();
-    if (!items[currentIndex]) return;
-    lbImg.src = items[currentIndex].src;
-    lbImg.alt = items[currentIndex].caption;
-    lbCaption.textContent = items[currentIndex].caption;
-  }
-
-  function closeLightbox() {
-    if (!lightbox) return;
-    lightbox.classList.remove("open");
-    document.body.style.overflow = "";
-  }
-
-  if (lbClose) lbClose.addEventListener("click", closeLightbox);
-  if (lightbox) lightbox.addEventListener("click", e => { if (e.target === lightbox) closeLightbox(); });
-
-  if (lbPrev) lbPrev.addEventListener("click", () => {
-    const items = getFiltered();
-    currentIndex = (currentIndex - 1 + items.length) % items.length;
-    showLightboxItem();
-  });
-
-  if (lbNext) lbNext.addEventListener("click", () => {
-    const items = getFiltered();
-    currentIndex = (currentIndex + 1) % items.length;
-    showLightboxItem();
-  });
-
-  // Keyboard navigation
-  document.addEventListener("keydown", e => {
-    if (!lightbox || !lightbox.classList.contains("open")) return;
-    if (e.key === "Escape")     closeLightbox();
-    if (e.key === "ArrowLeft")  lbPrev && lbPrev.click();
-    if (e.key === "ArrowRight") lbNext && lbNext.click();
-  });
-})();*/
-/* ============================================================
-   gallery-section.js
-   Drop this INSTEAD of the old gallery block in main.js.
-   Handles: home grid (8 photos) + fixed lightbox.
-   Call initHomeGallery() from your DOMContentLoaded block.
 ============================================================ */
+// (function renderGallery() {
+  
+//   const grid = document.getElementById("galleryGrid");
+  
+//   if (!grid || window.SiteData) return;
 
-(function () {
+//   let currentIndex = 0;
+//   let activeFilter = "all";
 
-  /* ── Sample data used when API has no gallery items ─────── */
-  const FALLBACK = [
-    { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Chhath_Puja.jpg/1280px-Chhath_Puja.jpg",         caption: "Devotees offering Arghya at the sacred ghat", category: "sunset", year: 2024 },
-    { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Chhath_Puja_2017.jpg/1280px-Chhath_Puja_2017.jpg", caption: "Community gathering at the village pond",          category: "community", year: 2024 },
-    { src: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80",                                   caption: "Sunrise Usha Arghya – first rays of morning",    category: "sunrise", year: 2023 },
-    { src: "https://images.unsplash.com/photo-1585011664466-b7bbe92f34ef?w=800&q=80",                                   caption: "Traditional earthen diyas lighting the ghat",    category: "prasad",  year: 2023 },
-    { src: "https://images.unsplash.com/photo-1567327613485-fbc7bf196197?w=800&q=80",                                   caption: "Festival decoration & lighting at village chowk", category: "community", year: 2023 },
-    { src: "https://images.unsplash.com/photo-1630316104826-5ea13a48d8c3?w=800&q=80",                                   caption: "Sacred water offerings at sunset",                category: "sunset", year: 2022 },
-    { src: "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=800&q=80",                                   caption: "Bamboo sup filled with thekua and fruits",        category: "prasad",  year: 2022 },
-    { src: "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=800&q=80",                                   caption: "Village devotees united in prayer",               category: "community", year: 2022 },
-  ];
+//   function getFiltered() {
+//     return activeFilter === "all"
+//       ? SiteData.gallery
+//       : SiteData.gallery.filter(g => g.filter === activeFilter);
+//   }
 
-  let photos = [];   // the 8 shown on homepage
-  let lbIndex = 0;   // current lightbox index
+//   function build() {
+//     grid.innerHTML = "";
+//     getFiltered().forEach((item, i) => {
+//       const div = document.createElement("div");
+//       div.className = "gallery-item";
+//       div.setAttribute("data-filter", item.filter);
+//       div.innerHTML = `
+//         <img src="${item.src}" alt="${item.caption}" loading="lazy" />
+//         <div class="gallery-overlay">
+//           <p>${item.caption}</p>
+//           <i class="fas fa-expand" style="margin-left:auto"></i>
+//         </div>`;
+//       div.addEventListener("click", () => openLightbox(i));
+//       grid.appendChild(div);
+//     });
+//   }
 
-  /* ── Init ─────────────────────────────────────────────── */
-  async function initHomeGallery() {
-    const grid = document.getElementById("galleryHomeGrid");
-    if (!grid) return;
+//   build();
 
-    // Try API first
-    let apiData = null;
-    try {
-      const res = await fetch("/api/public/gallery");
-      if (res.ok) {
-        const json = await res.json();
-        if (json.success && json.data && json.data.length > 0) {
-          apiData = json.data;
-        }
-      }
-    } catch (_) { /* offline – use fallback */ }
+//   // Filter buttons
+//   document.querySelectorAll(".filter-btn").forEach(btn => {
+//     btn.addEventListener("click", () => {
+//       document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+//       btn.classList.add("active");
+//       activeFilter = btn.dataset.filter;
 
-    photos = apiData ? apiData.slice(0, 8) : FALLBACK.slice(0, 8);
+//       // Animate out then rebuild
+//       grid.style.opacity = "0";
+//       grid.style.transform = "translateY(10px)";
+//       setTimeout(() => {
+//         build();
+//         grid.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+//         grid.style.opacity = "1";
+//         grid.style.transform = "translateY(0)";
+//       }, 250);
+//     });
+//   });
 
-    // Update total count label
-    const countEl = document.getElementById("galleryTotalCount");
-    if (countEl) {
-      const total = apiData ? apiData.length : FALLBACK.length;
-      countEl.textContent = `Browse all ${total}+ photos from Chhath Pooja celebrations`;
-    }
+//   // Lightbox
+//   const lightbox    = document.getElementById("lightbox");
+//   const lbImg       = document.getElementById("lightboxImg");
+//   const lbCaption   = document.getElementById("lightboxCaption");
+//   const lbClose     = document.getElementById("lightboxClose");
+//   const lbPrev      = document.getElementById("lightboxPrev");
+//   const lbNext      = document.getElementById("lightboxNext");
 
-    renderGrid(grid, photos);
-    initLightbox();
-  }
+//   function openLightbox(i) {
+//     if (!lightbox) return;
+//     currentIndex = i;
+//     showLightboxItem();
+//     lightbox.classList.add("open");
+//     document.body.style.overflow = "hidden";
+//   }
 
-  /* ── Render 8-item grid ──────────────────────────────── */
-  function renderGrid(grid, items) {
-    grid.innerHTML = items.map((p, i) =>
-      `<div class="g-item" data-index="${i}" role="button" tabindex="0" aria-label="Open photo: ${p.caption || ''}">
-        <img
-          src="${p.src}"
-          alt="${p.caption || 'Chhath Pooja photo'}"
-          loading="${i < 4 ? 'eager' : 'lazy'}"
-          onerror="this.src='https://placehold.co/600x400/E8690A/fff?text=Chhath+Pooja'"
-        />
-        <div class="g-item-overlay">
-          <p class="g-item-caption">${p.caption || ''}</p>
-          <div class="g-item-meta">
-            ${p.category ? `<span class="g-tag">${p.category}</span>` : ''}
-            ${p.year    ? `<span class="g-tag">${p.year}</span>`     : ''}
-            <div class="g-item-expand"><i class="fas fa-expand"></i></div>
-          </div>
-        </div>
-      </div>`
-    ).join('');
+//   function showLightboxItem() {
+//     const items = getFiltered();
+//     if (!items[currentIndex]) return;
+//     lbImg.src = items[currentIndex].src;
+//     lbImg.alt = items[currentIndex].caption;
+//     lbCaption.textContent = items[currentIndex].caption;
+//   }
 
-    // Click & keyboard on each item
-    grid.querySelectorAll('.g-item').forEach(el => {
-      el.addEventListener('click', () => openLightbox(+el.dataset.index));
-      el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(+el.dataset.index); } });
-    });
-  }
+//   function closeLightbox() {
+//     if (!lightbox) return;
+//     lightbox.classList.remove("open");
+//     document.body.style.overflow = "";
+//   }
 
-  /* ── Lightbox ────────────────────────────────────────── */
-  function initLightbox() {
-    const overlay = document.getElementById('glbOverlay');
-    const img     = document.getElementById('glbImg');
-    const loader  = document.getElementById('glbLoader');
-    const caption = document.getElementById('glbCaption');
-    const counter = document.getElementById('glbCounter');
-    const closeBtn = document.getElementById('glbClose');
-    const prevBtn  = document.getElementById('glbPrev');
-    const nextBtn  = document.getElementById('glbNext');
-    if (!overlay || !img) return;
+//   if (lbClose) lbClose.addEventListener("click", closeLightbox);
+//   if (lightbox) lightbox.addEventListener("click", e => { if (e.target === lightbox) closeLightbox(); });
 
-    /* open */
-    function openLightboxInternal(index) {
-      lbIndex = ((index % photos.length) + photos.length) % photos.length;
-      showPhoto();
-      overlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      overlay.focus();
-    }
+//   if (lbPrev) lbPrev.addEventListener("click", () => {
+//     const items = getFiltered();
+//     currentIndex = (currentIndex - 1 + items.length) % items.length;
+//     showLightboxItem();
+//   });
 
-    /* show current photo */
-    function showPhoto() {
-      const p = photos[lbIndex];
-      if (!p) return;
+//   if (lbNext) lbNext.addEventListener("click", () => {
+//     const items = getFiltered();
+//     currentIndex = (currentIndex + 1) % items.length;
+//     showLightboxItem();
+//   });
 
-      // Show loader, hide image
-      img.classList.add('loading');
-      if (loader) loader.classList.remove('hidden');
-
-      // Set src – onload reveals it
-      img.onload = () => {
-        img.classList.remove('loading');
-        if (loader) loader.classList.add('hidden');
-      };
-      img.onerror = () => {
-        img.src = 'https://placehold.co/800x500/E8690A/fff?text=Chhath+Pooja';
-        img.classList.remove('loading');
-        if (loader) loader.classList.add('hidden');
-      };
-      img.src = p.src;
-      img.alt = p.caption || '';
-
-      if (caption) caption.textContent = p.caption || '';
-      if (counter) counter.textContent = `${lbIndex + 1} / ${photos.length}`;
-    }
-
-    /* close */
-    function closeLightbox() {
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
-      img.src = '';
-    }
-
-    /* navigate */
-    function prev() { lbIndex = (lbIndex - 1 + photos.length) % photos.length; showPhoto(); }
-    function next() { lbIndex = (lbIndex + 1) % photos.length; showPhoto(); }
-
-    // Expose openLightbox to grid items
-    window._openHomeGalleryLightbox = openLightboxInternal;
-
-    // Button events
-    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    if (prevBtn)  prevBtn.addEventListener('click',  prev);
-    if (nextBtn)  nextBtn.addEventListener('click',  next);
-
-    // Click backdrop (not stage) to close
-    overlay.addEventListener('click', e => {
-      if (e.target === overlay) closeLightbox();
-    });
-
-    // Keyboard
-    document.addEventListener('keydown', e => {
-      if (!overlay.classList.contains('open')) return;
-      if (e.key === 'Escape')      closeLightbox();
-      if (e.key === 'ArrowLeft')   prev();
-      if (e.key === 'ArrowRight')  next();
-    });
-
-    // Touch swipe
-    let touchStartX = 0;
-    overlay.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-    overlay.addEventListener('touchend', e => {
-      const dx = e.changedTouches[0].clientX - touchStartX;
-      if (Math.abs(dx) > 50) { if (dx < 0) next(); else prev(); }
-    });
-  }
-
-  /* Expose openLightbox for grid item events */
-  function openLightbox(i) {
-    if (window._openHomeGalleryLightbox) window._openHomeGalleryLightbox(i);
-  }
-
-  /* ── Public API ──────────────────────────────────────── */
-  window.initHomeGallery = initHomeGallery;
-
-})();
+//   // Keyboard navigation
+//   document.addEventListener("keydown", e => {
+//     if (!lightbox || !lightbox.classList.contains("open")) return;
+//     if (e.key === "Escape")     closeLightbox();
+//     if (e.key === "ArrowLeft")  lbPrev && lbPrev.click();
+//     if (e.key === "ArrowRight") lbNext && lbNext.click();
+//   });
+// })();
 
 
 /* ============================================================
