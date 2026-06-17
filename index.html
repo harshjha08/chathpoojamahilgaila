@@ -571,7 +571,7 @@
 
   <!-- ============================================================
        GALLERY SECTION
-  ============================================================ -->
+  ============================================================ 
   <section class="section gallery-section" id="gallery">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
@@ -589,7 +589,7 @@
       </div>
 
       <div class="gallery-masonry" id="galleryGrid">
-         <!-- Populated by JS -->
+         <!-- Populated by JS 
       </div>
 
       
@@ -603,7 +603,78 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
+  <!-- ============================================================
+  GALLERY SECTION — Drop-in replacement for index.html
+  Replace the old <!-- GALLERY --> section with this entire block
+  Shows 8 recent photos in a fixed grid + redirect to gallery.html
+============================================================ -->
+
+<section class="section gallery-section" id="gallery">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-eyebrow"><i class="fas fa-images"></i> Smritiyan</span>
+      <h2 class="section-title">Photo Gallery</h2>
+      <p class="section-subtitle">Precious moments from previous Chhath Pooja celebrations at Village Mahil Gaila</p>
+    </div>
+
+    <!-- Year Pills (decorative on index page) -->
+    <div class="gallery-year-strip" data-aos="fade-up" data-aos-delay="100">
+      <span class="year-pill active"><i class="fas fa-star"></i> Recent</span>
+      <span class="year-pill"><i class="fas fa-calendar"></i> 2024</span>
+      <span class="year-pill"><i class="fas fa-calendar"></i> 2023</span>
+      <span class="year-pill"><i class="fas fa-calendar"></i> 2022</span>
+      <a href="gallery.html" class="year-pill year-pill-link"><i class="fas fa-folder-open"></i> All Years</a>
+    </div>
+
+    <!-- Fixed 8-photo Grid -->
+    <div class="gallery-home-grid" id="galleryHomeGrid" data-aos="fade-up" data-aos-delay="150">
+      <!-- Skeleton loaders shown while JS loads -->
+      <div class="g-skeleton"></div>
+      <div class="g-skeleton g-skeleton--tall"></div>
+      <div class="g-skeleton"></div>
+      <div class="g-skeleton"></div>
+      <div class="g-skeleton g-skeleton--tall"></div>
+      <div class="g-skeleton"></div>
+      <div class="g-skeleton"></div>
+      <div class="g-skeleton"></div>
+    </div>
+
+    <!-- CTA Row -->
+    <div class="gallery-cta-row" data-aos="fade-up" data-aos-delay="200">
+      <div class="gallery-cta-info">
+        <i class="fas fa-images"></i>
+        <span id="galleryTotalCount">Explore our complete collection of memories</span>
+      </div>
+      <a href="gallery.html" class="btn btn-primary gallery-view-all-btn">
+        <i class="fas fa-photo-film"></i>
+        View Full Gallery
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- ── LIGHTBOX (fixed, outside container so it covers full viewport) ── -->
+  <div class="glb-overlay" id="glbOverlay" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="glb-btn glb-close" id="glbClose" aria-label="Close"><i class="fas fa-times"></i></button>
+    <button class="glb-btn glb-prev"  id="glbPrev"  aria-label="Previous photo"><i class="fas fa-chevron-left"></i></button>
+    <button class="glb-btn glb-next"  id="glbNext"  aria-label="Next photo"><i class="fas fa-chevron-right"></i></button>
+
+    <div class="glb-stage">
+      <div class="glb-img-wrap">
+        <img id="glbImg" src="" alt="" />
+        <div class="glb-loader" id="glbLoader"><i class="fas fa-spinner fa-spin"></i></div>
+      </div>
+      <div class="glb-info">
+        <p class="glb-caption" id="glbCaption"></p>
+        <span class="glb-counter" id="glbCounter"></span>
+      </div>
+    </div>
+  </div>
+          </section>
 
   <!-- ============================================================
        SONGS / GEET SECTION
